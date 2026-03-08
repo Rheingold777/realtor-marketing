@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Realtor Marketing Solutions | Grow Your Real Estate Business</title>
+    <meta name="description" content="Custom marketing solutions for real estate agents. Websites, social media, lead generation, and branding — built to help you close more deals.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1e3a5f;
+            --secondary: #c9a227;
+            --accent: #2d5a87;
+            --dark: #0f1c2e;
+            --light: #f8f9fa;
+            --text: #333;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255,255,255,0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 40px;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+        }
+        
+        .logo span { color: var(--secondary); }
+        
+        .nav-cta {
+            background: linear-gradient(135deg, var(--secondary), #b8911f);
+            color: var(--dark);
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(201,162,39,0.3);
+        }
+        
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 50%, var(--primary) 100%);
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(201,162,39,0.1) 0%, transparent 70%);
+        }
+        
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2rem;
+            color: white;
+            line-height: 1.2;
+            margin-bottom: 25px;
+        }
+        
+        .hero-text h1 span {
+            color: var(--secondary);
+        }
+        
+        .hero-text p {
+            font-size: 1.25rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 35px;
+            max-width: 520px;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--secondary), #b8911f);
+            color: var(--dark);
+            padding: 18px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(201,162,39,0.4);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid rgba(255,255,255,0.8);
+            color: white;
+            padding: 18px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+        
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary);
+        }
+        
+        .hero-visual {
+            position: relative;
+        }
+        
+        .stats-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+        }
+        
+        .stats-card h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .stat-item:last-child { border-bottom: none; }
+        
+        .stat-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        
+        .stat-info h4 {
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+        
+        .stat-info p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* Problem Section */
+        .problem {
+            padding: 100px 0;
+            background: var(--light);
+        }
+        
+        .problem-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .problem h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 30px;
+        }
+        
+        .problem p {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        
+        .pain-points {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .pain-point {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: left;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        
+        .pain-point .icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        
+        .pain-point h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .pain-point p {
+            font-size: 1rem;
+            margin-bottom: 0;
+        }
+        
+        /* Services */
+        .services {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .section-header p {
+            color: #666;
+            font-size: 1.2rem;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: var(--light);
+            padding: 40px;
+            border-radius: 20px;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--secondary);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+        }
+        
+        .service-card .icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 25px;
+        }
+        
+        .service-card h3 {
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+        
+        .service-card p {
+            color: #666;
+        }
+        
+        /* Social Proof */
+        .social-proof {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+        }
+        
+        .proof-content {
+            display: flex;
+            justify-content: center;
+            gap: 80px;
+            text-align: center;
+        }
+        
+        .proof-item h3 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+        
+        .proof-item p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        /* CTA Section */
+        .cta {
+            padding: 100px 0;
+            background: var(--light);
+        }
+        
+        .cta-box {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            border-radius: 30px;
+            padding: 80px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -30%;
+            width: 60%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(201,162,39,0.15) 0%, transparent 70%);
+        }
+        
+        .cta-box h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .cta-box p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+        }
+        
+        .cta-box .btn-primary {
+            font-size: 1.2rem;
+            padding: 20px 50px;
+            position: relative;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+            text-align: center;
+        }
+        
+        footer .logo {
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        footer p {
+            opacity: 0.7;
+            margin-bottom: 10px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .hero-text h1 { font-size: 2.5rem; }
+            
+            .hero-buttons { justify-content: center; }
+            
+            .hero-text p { margin: 0 auto 35px; }
+            
+            .pain-points, .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .proof-content {
+                flex-direction: column;
+                gap: 40px;
+            }
+            
+            .cta-box { padding: 50px 30px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">Realtor<span>Marketing</span></a>
+            <a href="intake.html" class="nav-cta">Get Started Free →</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Marketing That <span>Closes Deals</span></h1>
+                    <p>Stop chasing leads. Start attracting them. We build custom marketing systems for real estate agents who want to grow without burning out.</p>
+                    <div class="hero-buttons">
+                        <a href="intake.html" class="btn-primary">📋 Free Marketing Assessment</a>
+                        <a href="#services" class="btn-secondary">See How It Works</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="stats-card">
+                        <h3>What You Get</h3>
+                        <div class="stat-item">
+                            <div class="stat-icon">🌐</div>
+                            <div class="stat-info">
+                                <h4>Professional Website</h4>
+                                <p>Mobile-ready, SEO-optimized</p>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon">📱</div>
+                            <div class="stat-info">
+                                <h4>Social Media Strategy</h4>
+                                <p>Content that converts</p>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon">🎯</div>
+                            <div class="stat-info">
+                                <h4>Lead Generation</h4>
+                                <p>Qualified buyers & sellers</p>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon">✨</div>
+                            <div class="stat-info">
+                                <h4>Personal Branding</h4>
+                                <p>Stand out in your market</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="problem">
+        <div class="container">
+            <div class="problem-content">
+                <h2>Sound Familiar?</h2>
+                <p>Most agents know they need better marketing, but...</p>
+            </div>
+            <div class="pain-points">
+                <div class="pain-point">
+                    <div class="icon">😰</div>
+                    <h4>No Time</h4>
+                    <p>You're too busy showing homes and writing contracts to post on social media consistently.</p>
+                </div>
+                <div class="pain-point">
+                    <div class="icon">🤷</div>
+                    <h4>No Strategy</h4>
+                    <p>Random posts, no content calendar, and no idea what actually works to generate leads.</p>
+                </div>
+                <div class="pain-point">
+                    <div class="icon">😞</div>
+                    <h4>No Results</h4>
+                    <p>You've tried Zillow, paid for leads, but nothing seems to deliver consistent ROI.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>How We Help You Win</h2>
+                <p>Everything you need to dominate your market</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="icon">🌐</div>
+                    <h3>Custom Websites</h3>
+                    <p>Professional, mobile-responsive websites that showcase your listings and capture leads 24/7.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon">📱</div>
+                    <h3>Social Media Management</h3>
+                    <p>Consistent, engaging content across Facebook, Instagram, and more — without lifting a finger.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon">🎯</div>
+                    <h3>Lead Generation</h3>
+                    <p>Targeted ad campaigns and funnels that deliver qualified buyers and sellers to your inbox.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon">✨</div>
+                    <h3>Branding & Design</h3>
+                    <p>Logos, colors, and messaging that make you memorable and build trust instantly.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon">📧</div>
+                    <h3>Email Marketing</h3>
+                    <p>Automated follow-up sequences that nurture leads and keep you top-of-mind.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon">📊</div>
+                    <h3>Analytics & Reporting</h3>
+                    <p>Know exactly what's working with clear, actionable reports every month.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="social-proof">
+        <div class="container">
+            <div class="proof-content">
+                <div class="proof-item">
+                    <h3>100%</h3>
+                    <p>Custom Solutions</p>
+                </div>
+                <div class="proof-item">
+                    <h3>24/7</h3>
+                    <p>Lead Capture</p>
+                </div>
+                <div class="proof-item">
+                    <h3>Local</h3>
+                    <p>Market Expertise</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <div class="cta-box">
+                <h2>Ready to Grow Your Business?</h2>
+                <p>Take our free marketing assessment and get a custom strategy — no obligation, no pressure.</p>
+                <a href="intake.html" class="btn-primary">📋 Start Free Assessment</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <a href="#" class="logo">Realtor<span>Marketing</span></a>
+            <p>Marketing solutions for real estate professionals</p>
+            <p style="margin-top: 30px; font-size: 0.85rem;">© 2026 All rights reserved</p>
+        </div>
+    </footer>
+</body>
+</html>

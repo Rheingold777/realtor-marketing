@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Realtor Marketing Assessment | Your Name</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a365d;
+            --secondary: #c53030;
+            --accent: #ed8936;
+            --gold: #d69e2e;
+            --light: #f7fafc;
+            --dark: #1a202c;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: var(--light);
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), #2c5282);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+        
+        .form-container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: -30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        
+        .section {
+            margin-bottom: 35px;
+            padding-bottom: 35px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        
+        .section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .section-title span {
+            font-size: 1.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .required::after {
+            content: " *";
+            color: var(--secondary);
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="url"],
+        input[type="number"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(26,54,93,0.1);
+        }
+        
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+        }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 15px;
+            background: #f7fafc;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        
+        .checkbox-item:hover {
+            background: #edf2f7;
+        }
+        
+        .checkbox-item input {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary);
+        }
+        
+        .radio-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .radio-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            background: #f7fafc;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .radio-item:hover {
+            background: #edf2f7;
+        }
+        
+        .radio-item input {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary);
+        }
+        
+        .row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        @media (max-width: 600px) {
+            .row {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, var(--secondary), #9b2c2c);
+            color: white;
+            padding: 18px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 20px;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(197,48,48,0.3);
+        }
+        
+        .helper-text {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        footer a {
+            color: var(--primary);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🥓 Realtor Marketing Assessment</h1>
+        <p>Help us understand your business so we can build your custom marketing plan</p>
+    </header>
+    
+    <div class="container">
+        <form class="form-container" action="https://formspree.io/f/xbdzlwyv" method="POST">
+            <input type="hidden" name="_subject" value="New Realtor Intake: Marketing Assessment">
+            <input type="hidden" name="_next" value="https://rheingold777.github.io/realtor-marketing/thanks.html">
+            
+            <!-- Section 1: Basic Info -->
+            <div class="section">
+                <h2 class="section-title"><span>📋</span> Basic Information</h2>
+                
+                <div class="row">
+                    <div class="form-group">
+                        <label class="required">Full Name</label>
+                        <input type="text" name="full_name" required placeholder="Your Name">
+                    </div>
+                    <div class="form-group">
+                        <label class="required">Brokerage</label>
+                        <input type="text" name="brokerage" required placeholder="Your Brokerage">
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="form-group">
+                        <label>License Number</label>
+                        <input type="text" name="license_number" placeholder="123456">
+                    </div>
+                    <div class="form-group">
+                        <label>Years in Real Estate</label>
+                        <input type="number" name="years_experience" placeholder="5">
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="form-group">
+                        <label class="required">Phone</label>
+                        <input type="tel" name="phone" required placeholder="(512) 555-1234">
+                    </div>
+                    <div class="form-group">
+                        <label class="required">Email</label>
+                        <input type="email" name="email" required placeholder="you@email.com">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Website (if you have one)</label>
+                    <input type="url" name="website" placeholder="https://yoursite.com">
+                </div>
+            </div>
+            
+            <!-- Section 2: Target Market -->
+            <div class="section">
+                <h2 class="section-title"><span>🎯</span> Target Market</h2>
+                
+                <div class="form-group">
+                    <label class="required">Primary Service Areas</label>
+                    <input type="text" name="service_areas" required placeholder="Taylor, Austin, Round Rock, Hutto...">
+                    <p class="helper-text">Cities, neighborhoods, or zip codes you focus on</p>
+                </div>
+                
+                <div class="form-group">
+                    <label>Specializations (check all that apply)</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="specialization[]" value="first_time_buyers">
+                            First-Time Buyers
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="specialization[]" value="luxury">
+                            Luxury Homes
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="specialization[]" value="investors">
+                            Investors
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="specialization[]" value="relocation">
+                            Relocation
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="specialization[]" value="seniors">
+                            Seniors/Downsizing
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="specialization[]" value="land">
+                            Land/Acreage
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="specialization[]" value="new_construction">
+                            New Construction
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="specialization[]" value="commercial">
+                            Commercial
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Price Range Focus</label>
+                    <select name="price_range">
+                        <option value="">Select one...</option>
+                        <option value="starter">Starter Homes ($150k-$300k)</option>
+                        <option value="mid">Mid-Market ($300k-$600k)</option>
+                        <option value="upper">Upper Market ($600k-$1M)</option>
+                        <option value="luxury">Luxury ($1M+)</option>
+                        <option value="all">All Price Ranges</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Describe Your Ideal Client</label>
+                    <textarea name="ideal_client" placeholder="Who is your dream client? What are they looking for?"></textarea>
+                </div>
+            </div>
+            
+            <!-- Section 3: Current Status -->
+            <div class="section">
+                <h2 class="section-title"><span>📊</span> Current Business Status</h2>
+                
+                <div class="row">
+                    <div class="form-group">
+                        <label>Average Transactions Per Year</label>
+                        <select name="transactions_per_year">
+                            <option value="">Select one...</option>
+                            <option value="0-5">0-5</option>
+                            <option value="6-12">6-12</option>
+                            <option value="13-24">13-24</option>
+                            <option value="25-50">25-50</option>
+                            <option value="50+">50+</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Primary Transaction Type</label>
+                        <select name="primary_type">
+                            <option value="">Select one...</option>
+                            <option value="buyers">Mostly Buyers</option>
+                            <option value="sellers">Mostly Sellers</option>
+                            <option value="both">50/50 Split</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Current Lead Sources (check all that apply)</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="lead_sources[]" value="referrals">
+                            Referrals
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="lead_sources[]" value="zillow">
+                            Zillow/Realtor.com
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="lead_sources[]" value="social_media">
+                            Social Media
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="lead_sources[]" value="open_houses">
+                            Open Houses
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="lead_sources[]" value="farming">
+                            Farming/Mailers
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="lead_sources[]" value="cold_calling">
+                            Cold Calling
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="lead_sources[]" value="website">
+                            Website/SEO
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="lead_sources[]" value="paid_ads">
+                            Paid Ads
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>What's Working Well Right Now?</label>
+                    <textarea name="whats_working" placeholder="What marketing or lead gen is giving you the best results?"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label class="required">Biggest Challenges</label>
+                    <textarea name="challenges" required placeholder="What's holding you back? Where do you need the most help?"></textarea>
+                </div>
+            </div>
+            
+            <!-- Section 4: Online Presence -->
+            <div class="section">
+                <h2 class="section-title"><span>📱</span> Online Presence</h2>
+                
+                <div class="row">
+                    <div class="form-group">
+                        <label>Facebook Page URL</label>
+                        <input type="url" name="facebook" placeholder="https://facebook.com/yourpage">
+                    </div>
+                    <div class="form-group">
+                        <label>Instagram Handle</label>
+                        <input type="text" name="instagram" placeholder="@yourhandle">
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="form-group">
+                        <label>YouTube Channel</label>
+                        <input type="url" name="youtube" placeholder="https://youtube.com/@yourchannel">
+                    </div>
+                    <div class="form-group">
+                        <label>TikTok Handle</label>
+                        <input type="text" name="tiktok" placeholder="@yourhandle">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>How often do you post on social media?</label>
+                    <div class="radio-group">
+                        <label class="radio-item">
+                            <input type="radio" name="post_frequency" value="daily">
+                            Daily
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="post_frequency" value="few_times_week">
+                            Few times/week
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="post_frequency" value="weekly">
+                            Weekly
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="post_frequency" value="rarely">
+                            Rarely
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="post_frequency" value="never">
+                            Never
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Do you have a content calendar?</label>
+                    <div class="radio-group">
+                        <label class="radio-item">
+                            <input type="radio" name="content_calendar" value="yes">
+                            Yes
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="content_calendar" value="no">
+                            No
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="content_calendar" value="whats_that">
+                            What's that?
+                        </label>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Section 5: Branding -->
+            <div class="section">
+                <h2 class="section-title"><span>🎨</span> Branding</h2>
+                
+                <div class="row">
+                    <div class="form-group">
+                        <label>Do you have a logo?</label>
+                        <div class="radio-group">
+                            <label class="radio-item">
+                                <input type="radio" name="has_logo" value="yes">
+                                Yes
+                            </label>
+                            <label class="radio-item">
+                                <input type="radio" name="has_logo" value="no">
+                                No
+                            </label>
+                            <label class="radio-item">
+                                <input type="radio" name="has_logo" value="need_one">
+                                Need one
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Professional headshot?</label>
+                        <div class="radio-group">
+                            <label class="radio-item">
+                                <input type="radio" name="has_headshot" value="yes">
+                                Yes
+                            </label>
+                            <label class="radio-item">
+                                <input type="radio" name="has_headshot" value="no">
+                                No
+                            </label>
+                            <label class="radio-item">
+                                <input type="radio" name="has_headshot" value="need_one">
+                                Need one
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Brand Colors (if you have them)</label>
+                    <input type="text" name="brand_colors" placeholder="e.g., Navy blue, gold, red">
+                </div>
+                
+                <div class="form-group">
+                    <label>Tagline/Slogan</label>
+                    <input type="text" name="tagline" placeholder="e.g., Everything is Better with Bacon!">
+                </div>
+                
+                <div class="form-group">
+                    <label>What makes you different from other realtors?</label>
+                    <textarea name="unique_value" placeholder="What's your unique selling proposition? Why should someone work with you?"></textarea>
+                </div>
+            </div>
+            
+            <!-- Section 6: Goals -->
+            <div class="section">
+                <h2 class="section-title"><span>🎯</span> Goals</h2>
+                
+                <div class="form-group">
+                    <label class="required">What do you want to achieve in the next 90 days?</label>
+                    <textarea name="goals_90_days" required placeholder="Be specific — more leads, close X deals, build brand awareness..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>12-month goal</label>
+                    <textarea name="goals_12_months" placeholder="Where do you want your business to be a year from now?"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label class="required">Biggest marketing pain point right now</label>
+                    <textarea name="pain_point" required placeholder="What's the #1 thing you need help with?"></textarea>
+                </div>
+            </div>
+            
+            <!-- Section 7: Budget -->
+            <div class="section">
+                <h2 class="section-title"><span>💰</span> Budget & Resources</h2>
+                
+                <div class="form-group">
+                    <label>Monthly marketing budget (ballpark)</label>
+                    <select name="budget">
+                        <option value="">Select one...</option>
+                        <option value="0-100">$0-$100</option>
+                        <option value="100-500">$100-$500</option>
+                        <option value="500-1000">$500-$1,000</option>
+                        <option value="1000-2500">$1,000-$2,500</option>
+                        <option value="2500+">$2,500+</option>
+                        <option value="not_sure">Not sure yet</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Are you open to paid advertising?</label>
+                    <div class="radio-group">
+                        <label class="radio-item">
+                            <input type="radio" name="open_to_ads" value="yes">
+                            Yes
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="open_to_ads" value="no">
+                            No
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="open_to_ads" value="maybe">
+                            Maybe
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Do you have help with content/admin?</label>
+                    <div class="radio-group">
+                        <label class="radio-item">
+                            <input type="radio" name="has_help" value="yes">
+                            Yes
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="has_help" value="no">
+                            No, just me
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Tools you currently use</label>
+                    <textarea name="current_tools" placeholder="CRM, email marketing, scheduling tools, etc."></textarea>
+                </div>
+            </div>
+            
+            <!-- Section 8: Anything Else -->
+            <div class="section">
+                <h2 class="section-title"><span>💬</span> Anything Else?</h2>
+                
+                <div class="form-group">
+                    <label>Is there anything else you'd like us to know?</label>
+                    <textarea name="additional_info" placeholder="Any other details, questions, or context that would help us help you..."></textarea>
+                </div>
+            </div>
+            
+            <button type="submit" class="submit-btn">🥓 Submit Assessment</button>
+        </form>
+    </div>
+    
+    <footer>
+        <p>This assessment helps us build your custom marketing plan.</p>
+        <p>Questions? Contact <a href="mailto:bsuppan@gmail.com">Bernhard</a></p>
+    </footer>
+</body>
+</html>
