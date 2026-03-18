@@ -629,8 +629,45 @@
                 </div>
                 
                 <div class="form-group">
-                    <label>Tools you currently use</label>
-                    <textarea name="current_tools" placeholder="CRM, email marketing, scheduling tools, etc."></textarea>
+                    <label>Tools you currently use (check all that apply)</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="current_tools[]" value="canva">
+                            Canva
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="current_tools[]" value="kvcore_boomtown">
+                            kvCORE / BoomTown
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="current_tools[]" value="mailchimp_constantcontact">
+                            Mailchimp / Constant Contact
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="current_tools[]" value="social_scheduler">
+                            Later / Buffer / Hootsuite
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="current_tools[]" value="zillow_premier">
+                            Zillow Premier Agent
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="current_tools[]" value="transaction_mgmt">
+                            Dotloop / SkySlope
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="current_tools[]" value="bombbomb">
+                            BombBomb (video email)
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="current_tools[]" value="crm_other">
+                            Other CRM (Follow Up Boss, LionDesk, etc.)
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Other tools not listed above</label>
+                    <input type="text" name="current_tools_other" placeholder="Any other tools you use...">
                 </div>
             </div>
             
