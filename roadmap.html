@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Realtor Lead Generation Roadmap | RealtorMarketingAI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1e3a5f;
+            --secondary: #c9a227;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --light: #f8fafc;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            color: white;
+        }
+        
+        .header h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #fff, var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Phase Cards */
+        .roadmap {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .phase {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        .phase-header {
+            padding: 25px 30px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .phase-number {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: white;
+            flex-shrink: 0;
+        }
+        
+        .phase-1 .phase-header { background: linear-gradient(135deg, #10b981, #059669); }
+        .phase-1 .phase-number { background: rgba(255,255,255,0.2); }
+        
+        .phase-2 .phase-header { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
+        .phase-2 .phase-number { background: rgba(255,255,255,0.2); }
+        
+        .phase-3 .phase-header { background: linear-gradient(135deg, #8b5cf6, #6d28d9); }
+        .phase-3 .phase-number { background: rgba(255,255,255,0.2); }
+        
+        .phase-4 .phase-header { background: linear-gradient(135deg, #f59e0b, #d97706); }
+        .phase-4 .phase-number { background: rgba(255,255,255,0.2); }
+        
+        .phase-5 .phase-header { background: linear-gradient(135deg, #ec4899, #be185d); }
+        .phase-5 .phase-number { background: rgba(255,255,255,0.2); }
+        
+        .phase-title {
+            color: white;
+        }
+        
+        .phase-title h2 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+        
+        .phase-title p {
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+        
+        .phase-meta {
+            margin-left: auto;
+            display: flex;
+            gap: 15px;
+        }
+        
+        .meta-badge {
+            background: rgba(255,255,255,0.2);
+            padding: 8px 15px;
+            border-radius: 20px;
+            color: white;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        .phase-body {
+            padding: 30px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 25px;
+        }
+        
+        .phase-section h4 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #666;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .task-list {
+            list-style: none;
+        }
+        
+        .task-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.95rem;
+        }
+        
+        .task-list li:last-child { border-bottom: none; }
+        
+        .task-list .check {
+            color: var(--success);
+            font-weight: bold;
+        }
+        
+        .cost-box {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .cost-amount {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+        
+        .cost-label {
+            font-size: 0.85rem;
+            color: #666;
+        }
+        
+        .effort-bar {
+            background: #e2e8f0;
+            height: 12px;
+            border-radius: 6px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+        
+        .effort-fill {
+            height: 100%;
+            border-radius: 6px;
+        }
+        
+        .effort-low { width: 25%; background: var(--success); }
+        .effort-medium { width: 50%; background: var(--warning); }
+        .effort-high { width: 75%; background: #f97316; }
+        .effort-intense { width: 100%; background: var(--danger); }
+        
+        .outcome-box {
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            border: 2px solid var(--success);
+            border-radius: 12px;
+            padding: 20px;
+        }
+        
+        .outcome-box h5 {
+            color: var(--success);
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+        
+        /* Summary Section */
+        .summary {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        .summary h3 {
+            text-align: center;
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 30px;
+        }
+        
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .summary-card {
+            text-align: center;
+            padding: 25px;
+            border-radius: 15px;
+            background: var(--light);
+        }
+        
+        .summary-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .summary-card h4 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+        
+        .summary-card p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* Timeline */
+        .timeline {
+            background: var(--light);
+            border-radius: 15px;
+            padding: 30px;
+        }
+        
+        .timeline h4 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: var(--primary);
+        }
+        
+        .timeline-bar {
+            display: flex;
+            height: 60px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .timeline-segment {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-align: center;
+            padding: 10px;
+        }
+        
+        .timeline-segment.setup { flex: 1; background: #10b981; }
+        .timeline-segment.foundation { flex: 1; background: #3b82f6; }
+        .timeline-segment.content { flex: 2; background: #8b5cf6; }
+        .timeline-segment.optimize { flex: 2; background: #f59e0b; }
+        .timeline-segment.scale { flex: 2; background: #ec4899; }
+        
+        .timeline-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            font-size: 0.85rem;
+            color: #666;
+        }
+        
+        /* CTA */
+        .cta-section {
+            text-align: center;
+            margin-top: 40px;
+            padding: 40px;
+            background: linear-gradient(135deg, var(--primary), #0f172a);
+            border-radius: 20px;
+        }
+        
+        .cta-section h3 {
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+        
+        .cta-section p {
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 25px;
+        }
+        
+        .cta-btn {
+            display: inline-block;
+            background: var(--secondary);
+            color: var(--primary);
+            padding: 18px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+        
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(201,162,39,0.4);
+        }
+        
+        /* Responsive */
+        @media (max-width: 968px) {
+            .phase-body {
+                grid-template-columns: 1fr;
+            }
+            
+            .phase-header {
+                flex-wrap: wrap;
+            }
+            
+            .phase-meta {
+                margin-left: 0;
+                margin-top: 15px;
+                width: 100%;
+            }
+            
+            .summary-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .timeline-bar {
+                flex-direction: column;
+                height: auto;
+            }
+            
+            .timeline-segment {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 Realtor Lead Generation Roadmap</h1>
+            <p>The complete A-to-Z journey from zero leads to consistent pipeline. Cost, effort, and timeline — all laid out.</p>
+        </div>
+        
+        <div class="roadmap">
+            <!-- Phase 1: Foundation -->
+            <div class="phase phase-1">
+                <div class="phase-header">
+                    <div class="phase-number">1</div>
+                    <div class="phase-title">
+                        <h2>Foundation Setup</h2>
+                        <p>Build your digital home base</p>
+                    </div>
+                    <div class="phase-meta">
+                        <span class="meta-badge">⏱️ Week 1</span>
+                        <span class="meta-badge">✅ DONE for Clint</span>
+                    </div>
+                </div>
+                <div class="phase-body">
+                    <div class="phase-section">
+                        <h4>📋 Tasks</h4>
+                        <ul class="task-list">
+                            <li><span class="check">✓</span> Professional website with lead capture</li>
+                            <li><span class="check">✓</span> Custom domain (baconsellstexas.com)</li>
+                            <li><span class="check">✓</span> Mobile-responsive design</li>
+                            <li><span class="check">✓</span> Contact forms + auto-notifications</li>
+                            <li><span class="check">✓</span> Basic SEO setup</li>
+                        </ul>
+                    </div>
+                    <div class="phase-section">
+                        <h4>💰 Cost & Effort</h4>
+                        <div class="cost-box">
+                            <div class="cost-amount">$10-15/yr</div>
+                            <div class="cost-label">Domain + Hosting (GitHub = Free)</div>
+                        </div>
+                        <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">Effort Level:</p>
+                        <div class="effort-bar"><div class="effort-fill effort-low"></div></div>
+                        <p style="font-size: 0.8rem; color: #999; margin-top: 5px;">Low (we do the work)</p>
+                    </div>
+                    <div class="phase-section">
+                        <h4>🎯 Outcome</h4>
+                        <div class="outcome-box">
+                            <h5>You Now Have:</h5>
+                            <p>A professional online presence that works 24/7. When someone Googles "Clint Bacon realtor," they find a legit site — not nothing.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Phase 2: Local SEO -->
+            <div class="phase phase-2">
+                <div class="phase-header">
+                    <div class="phase-number">2</div>
+                    <div class="phase-title">
+                        <h2>Local SEO & Directories</h2>
+                        <p>Get found when people search</p>
+                    </div>
+                    <div class="phase-meta">
+                        <span class="meta-badge">⏱️ Week 2</span>
+                        <span class="meta-badge">⚡ Quick Win</span>
+                    </div>
+                </div>
+                <div class="phase-body">
+                    <div class="phase-section">
+                        <h4>📋 Tasks</h4>
+                        <ul class="task-list">
+                            <li><span class="check">○</span> Claim Google Business Profile</li>
+                            <li><span class="check">○</span> Add photos, hours, services</li>
+                            <li><span class="check">○</span> Get 5+ Google reviews</li>
+                            <li><span class="check">○</span> Claim Yelp, Realtor.com profiles</li>
+                            <li><span class="check">○</span> Consistent NAP everywhere</li>
+                        </ul>
+                    </div>
+                    <div class="phase-section">
+                        <h4>💰 Cost & Effort</h4>
+                        <div class="cost-box">
+                            <div class="cost-amount">$0</div>
+                            <div class="cost-label">All free platforms</div>
+                        </div>
+                        <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">Effort Level:</p>
+                        <div class="effort-bar"><div class="effort-fill effort-medium"></div></div>
+                        <p style="font-size: 0.8rem; color: #999; margin-top: 5px;">Medium (Clint needs to verify accounts)</p>
+                    </div>
+                    <div class="phase-section">
+                        <h4>🎯 Outcome</h4>
+                        <div class="outcome-box">
+                            <h5>You Now Have:</h5>
+                            <p>When someone searches "realtor near Taylor TX," you appear in the map pack. Free leads from Google — forever.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Phase 3: Content Engine -->
+            <div class="phase phase-3">
+                <div class="phase-header">
+                    <div class="phase-number">3</div>
+                    <div class="phase-title">
+                        <h2>Content Engine</h2>
+                        <p>Build trust through consistent presence</p>
+                    </div>
+                    <div class="phase-meta">
+                        <span class="meta-badge">⏱️ Weeks 3-8</span>
+                        <span class="meta-badge">🔄 Ongoing</span>
+                    </div>
+                </div>
+                <div class="phase-body">
+                    <div class="phase-section">
+                        <h4>📋 Tasks</h4>
+                        <ul class="task-list">
+                            <li><span class="check">○</span> 3x/week social posts (FB + IG)</li>
+                            <li><span class="check">○</span> Weekly market updates</li>
+                            <li><span class="check">○</span> Local area spotlights</li>
+                            <li><span class="check">○</span> Just Listed / Just Sold posts</li>
+                            <li><span class="check">○</span> Educational tips for buyers/sellers</li>
+                            <li><span class="check">○</span> Engage with every comment</li>
+                        </ul>
+                    </div>
+                    <div class="phase-section">
+                        <h4>💰 Cost & Effort</h4>
+                        <div class="cost-box">
+                            <div class="cost-amount">$0-50/mo</div>
+                            <div class="cost-label">Canva Pro optional ($13/mo)</div>
+                        </div>
+                        <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">Effort Level:</p>
+                        <div class="effort-bar"><div class="effort-fill effort-high"></div></div>
+                        <p style="font-size: 0.8rem; color: #999; margin-top: 5px;">High (2-3 hrs/week creating + posting)</p>
+                    </div>
+                    <div class="phase-section">
+                        <h4>🎯 Outcome</h4>
+                        <div class="outcome-box">
+                            <h5>You Now Have:</h5>
+                            <p>An active social presence. People see you're real, active, and know the local market. Trust builds over time → referrals.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Phase 4: Paid Ads (Optional) -->
+            <div class="phase phase-4">
+                <div class="phase-header">
+                    <div class="phase-number">4</div>
+                    <div class="phase-title">
+                        <h2>Paid Lead Generation</h2>
+                        <p>Accelerate with targeted ads</p>
+                    </div>
+                    <div class="phase-meta">
+                        <span class="meta-badge">⏱️ Month 2+</span>
+                        <span class="meta-badge">💵 Budget Req'd</span>
+                    </div>
+                </div>
+                <div class="phase-body">
+                    <div class="phase-section">
+                        <h4>📋 Tasks</h4>
+                        <ul class="task-list">
+                            <li><span class="check">○</span> Facebook/Instagram ads setup</li>
+                            <li><span class="check">○</span> Target: "Moving to Taylor TX"</li>
+                            <li><span class="check">○</span> Lead magnet: "Taylor Home Buyer Guide"</li>
+                            <li><span class="check">○</span> Retargeting website visitors</li>
+                            <li><span class="check">○</span> A/B test ad creative</li>
+                            <li><span class="check">○</span> Weekly optimization</li>
+                        </ul>
+                    </div>
+                    <div class="phase-section">
+                        <h4>💰 Cost & Effort</h4>
+                        <div class="cost-box">
+                            <div class="cost-amount">$300-800/mo</div>
+                            <div class="cost-label">Ad spend + management</div>
+                        </div>
+                        <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">Effort Level:</p>
+                        <div class="effort-bar"><div class="effort-fill effort-medium"></div></div>
+                        <p style="font-size: 0.8rem; color: #999; margin-top: 5px;">Medium (we can manage, Clint follows up)</p>
+                    </div>
+                    <div class="phase-section">
+                        <h4>🎯 Outcome</h4>
+                        <div class="outcome-box">
+                            <h5>You Now Have:</h5>
+                            <p><strong>10-30 leads/month</strong> flowing into your inbox. Real people looking to buy or sell — now.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Phase 5: Scale & Automate -->
+            <div class="phase phase-5">
+                <div class="phase-header">
+                    <div class="phase-number">5</div>
+                    <div class="phase-title">
+                        <h2>Scale & Automate</h2>
+                        <p>Systems that work while you sleep</p>
+                    </div>
+                    <div class="phase-meta">
+                        <span class="meta-badge">⏱️ Month 3+</span>
+                        <span class="meta-badge">🚀 Growth Mode</span>
+                    </div>
+                </div>
+                <div class="phase-body">
+                    <div class="phase-section">
+                        <h4>📋 Tasks</h4>
+                        <ul class="task-list">
+                            <li><span class="check">○</span> Email drip sequences</li>
+                            <li><span class="check">○</span> CRM setup (Follow Up Boss, etc.)</li>
+                            <li><span class="check">○</span> Automated follow-up texts</li>
+                            <li><span class="check">○</span> Review request automation</li>
+                            <li><span class="check">○</span> Referral program</li>
+                            <li><span class="check">○</span> Monthly performance reports</li>
+                        </ul>
+                    </div>
+                    <div class="phase-section">
+                        <h4>💰 Cost & Effort</h4>
+                        <div class="cost-box">
+                            <div class="cost-amount">$50-200/mo</div>
+                            <div class="cost-label">CRM + email tools</div>
+                        </div>
+                        <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">Effort Level:</p>
+                        <div class="effort-bar"><div class="effort-fill effort-low"></div></div>
+                        <p style="font-size: 0.8rem; color: #999; margin-top: 5px;">Low (runs automatically once set up)</p>
+                    </div>
+                    <div class="phase-section">
+                        <h4>🎯 Outcome</h4>
+                        <div class="outcome-box">
+                            <h5>You Now Have:</h5>
+                            <p>A <strong>marketing machine</strong>. Leads come in, get nurtured automatically, and you focus on closing deals.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Summary -->
+        <div class="summary">
+            <h3>📊 The Bottom Line</h3>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <div class="icon">💰</div>
+                    <h4>$300-1000</h4>
+                    <p>Monthly investment<br>(at full scale)</p>
+                </div>
+                <div class="summary-card">
+                    <div class="icon">⏱️</div>
+                    <h4>3-6 Months</h4>
+                    <p>To consistent<br>lead flow</p>
+                </div>
+                <div class="summary-card">
+                    <div class="icon">📈</div>
+                    <h4>10-30</h4>
+                    <p>Leads per month<br>(with ads)</p>
+                </div>
+                <div class="summary-card">
+                    <div class="icon">🎯</div>
+                    <h4>2-5 hrs</h4>
+                    <p>Weekly time<br>commitment</p>
+                </div>
+            </div>
+            
+            <div class="timeline">
+                <h4>📅 6-Month Timeline View</h4>
+                <div class="timeline-bar">
+                    <div class="timeline-segment setup">Setup<br>✅</div>
+                    <div class="timeline-segment foundation">Local SEO</div>
+                    <div class="timeline-segment content">Content Grind</div>
+                    <div class="timeline-segment optimize">Paid Ads + Optimize</div>
+                    <div class="timeline-segment scale">Scale & Automate</div>
+                </div>
+                <div class="timeline-labels">
+                    <span>Week 1</span>
+                    <span>Month 1</span>
+                    <span>Month 2</span>
+                    <span>Month 3</span>
+                    <span>Month 6</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- CTA -->
+        <div class="cta-section">
+            <h3>Ready to Start Phase 2?</h3>
+            <p>Clint's foundation is built. Let's get him on Google and start the content engine.</p>
+            <a href="intake.html" class="cta-btn">📋 Let's Talk Strategy</a>
+        </div>
+    </div>
+</body>
+</html>
